@@ -11,9 +11,18 @@ def index(req):
 
     retv = []
     for voting in all_votings:
-        retv.append('{}<br />\n'.format(voting.text))
+        retv.append('''
+            <a href="/{}/">{}</a><br />
+            '''.format(voting.id, voting.text))
 
     return HttpResponse(retv) 
+    
+def one_poll(req, poll_id):
+
+    a_poll = Voting.objects.get(id=poll_id)    
+    retv = ''' <h1>{}</h1> '''.format(a_poll.text)
+
+    return HttpResponse(retv)
     
 
     
