@@ -2,6 +2,9 @@
 
 <ul>
 {% for answer in the_poll.answers.all %}
-<li>{{ answer.text }}</li>
+<li><a href="/vote/{{ answer.id }}/">
+           {{ answer.text }}</a> 
+           - {{ answer.count }}</a>
+</li>
 {% endfor  %}
 </ul>
