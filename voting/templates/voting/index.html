@@ -1,0 +1,8 @@
+
+<h1>Seznam hlasovani</h1>
+
+<ul>
+{% for a_poll in all_polls %}
+<li><a href="/{{ a_poll.id }}/">{{ a_poll.text }}</a></li>
+{% endfor  %}
+</ul>

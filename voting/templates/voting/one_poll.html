@@ -1,0 +1,7 @@
+<h1>{{ the_poll.text }}</h1>
+
+<ul>
+{% for answer in the_poll.answers.all %}
+<li>{{ answer.text }}</li>
+{% endfor  %}
+</ul>
