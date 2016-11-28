@@ -41,6 +41,7 @@ INSTALLED_APPS = [
     'voting',   # XXX: Ovladnout svet
 ]
 
+
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
@@ -50,6 +51,13 @@ MIDDLEWARE = [
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
+
+try:
+    import debug_toolbar
+    INSTALLED_APPS.append('debug_toolbar')
+    MIDDLEWARE.append('debug_toolbar.middleware.DebugToolbarMiddleware')
+except ImportError:
+    pass
 
 ROOT_URLCONF = 'voting_machine.urls'
 

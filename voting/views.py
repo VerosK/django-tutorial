@@ -7,22 +7,16 @@ from .models import Voting
 
 
 def index(req):
-    all_votings = Voting.objects.all()    
-
-    retv = []
-    for voting in all_votings:
-        retv.append('''
-            <a href="/{}/">{}</a><br />
-            '''.format(voting.id, voting.text))
-
-    return HttpResponse(retv) 
+    context = dict(
+        all_polls = Voting.objects.all()
+    )
+    return render(req, 'voting/index.html', context)
     
 def one_poll(req, poll_id):
-
-    a_poll = Voting.objects.get(id=poll_id)    
-    retv = ''' <h1>{}</h1> '''.format(a_poll.text)
-
-    return HttpResponse(retv)
+    context = dict(
+        the_poll = Voting.objects.get(id=poll_id) 
+    )
+    return render(req, 'voting/one_poll.html', context)
     
 
     

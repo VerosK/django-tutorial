@@ -7,7 +7,6 @@ import voting.views
 
 urlpatterns = [
     url(r'^$', voting.views.index),        
-    url(r'^(\d+)/$', voting.views.one_poll),
     url(r'^(?P<poll_id>\d+)/$', voting.views.one_poll),
     url(r'^admin/', admin.site.urls),
 ]
